@@ -12,35 +12,37 @@ def exibir_matriz(matriz):
     for linha in matriz:
         print(linha)
 
-# Pedindo os elementos, um a um, ao usuário
-m = int(input("Número de linhas: "))
-n = int(input("Número de colunas: "))
+if __name__ == "__main__":
 
-matriz = []
-for i in range(m):
-    linha = []
-    for j in range(n):
-        elemento = input("Elemento da linha {} e coluna {}".format(i, j))
-        linha.append(float(elemento))
-    matriz.append(linha)
+    # Pedindo os elementos, um a um, ao usuário
+    m = int(input("Número de linhas: "))
+    n = int(input("Número de colunas: "))
 
-exibir_matriz(matriz)
+    matriz = []
+    for i in range(m):
+        linha = []
+        for j in range(n):
+            elemento = input("Elemento da linha {} e coluna {}".format(i, j))
+            linha.append(float(elemento))
+        matriz.append(linha)
 
-# Criando uma matriz a partir de um arquivo de texto
-matriz = []
+    exibir_matriz(matriz)
 
-arquivo = open("matriz4x5.txt", "r")
-linha = arquivo.readline()
-while linha!= "":
-    elementos = linha.split()
-    for n in range(len(elementos)):
-        elementos[n] = float(elementos[n])
-    matriz.append(elementos)
+    # Criando uma matriz a partir de um arquivo de texto
+    matriz = []
+
+    arquivo = open("matriz4x5.txt", "r")
     linha = arquivo.readline()
+    while linha!= "":
+        elementos = linha.split()
+        for n in range(len(elementos)):
+            elementos[n] = float(elementos[n])
+        matriz.append(elementos)
+        linha = arquivo.readline()
 
-arquivo.close()
+    arquivo.close()
 
-exibir_matriz(matriz)
+    exibir_matriz(matriz)
 
 # Obs: Se você entende List Comprehension em Python, as linhas 36 e 37 poderiam
 # ser escritas assim: elementos = [float(e) for e in elementos]
